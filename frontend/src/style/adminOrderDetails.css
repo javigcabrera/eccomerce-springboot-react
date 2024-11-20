@@ -42,11 +42,36 @@
 }
 
 .order-item-details img {
-    max-width: 150px; /* Ajusta el ancho máximo */
-    height: auto; /* Mantén las proporciones */
+    max-width: 150px; 
+    height: auto; 
     display: block;
-    margin: auto; /* Centra la imagen */
-    border: 1px solid #ddd; /* Opcional: Añade un borde */
-    padding: 5px; /* Opcional: Añade un espacio alrededor de la imagen */
-    border-radius: 5px; /* Opcional: Redondea los bordes */
+    margin: auto; 
+    border: 1px solid #ddd;
+    padding: 5px; 
+    border-radius: 5px; 
+}
+
+
+@media (max-width: 768px) {
+    body {
+        font-size: 90%;
+        padding: 10px;
+    }
+    .container {
+        padding: 10px;
+        flex-direction: column;
+    }
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+button, a {
+    transition: all 0.3s ease;
+}
+button:hover, a:hover {
+    transform: scale(1.05);
+    background-color: #4A90E2;
 }

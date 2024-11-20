@@ -51,3 +51,27 @@
     text-decoration: none;
     color: #008080;
 }
+
+@media (max-width: 768px) {
+    body {
+        font-size: 90%;
+        padding: 10px;
+    }
+    .container {
+        padding: 10px;
+        flex-direction: column;
+    }
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+button, a {
+    transition: all 0.3s ease;
+}
+button:hover, a:hover {
+    transform: scale(1.05);
+    background-color: #4A90E2;
+}
