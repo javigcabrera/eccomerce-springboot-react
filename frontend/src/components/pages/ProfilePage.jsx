@@ -39,7 +39,7 @@ const ProfilePage = () => {
     // SI LOS DATOS DEL USUARIO AÚN NO SE HAN CARGADO, MUESTRA UN MENSAJE DE "CARGANDO"
     if (!userInfo) {
         return (
-            <div>Loading....</div>
+            <div data-testid="loading-message">Loading....</div>
         );
     }
 
@@ -62,54 +62,55 @@ const ProfilePage = () => {
 
     // RENDERIZA LA INFORMACIÓN DEL USUARIO
     return (
-        <div className="profile-page">
-            <h2>Bienvenido {userInfo.name}</h2>
+        <div className="profile-page" data-testid="profile-page">
+            <h2 data-testid="welcome-message">Bienvenido {userInfo.name}</h2>
 
             {/* SI HAY UN ERROR, LO MUESTRA */}
             {error ? (
-                <p className="error-message">{error}</p>
+                <p className="error-message" data-testid="error-message">{error}</p>
             ) : (
                 <div>
                     {/* INFORMACIÓN BÁSICA DEL USUARIO */}
-                    <p><strong>Nombre: </strong>{userInfo.name}</p>
-                    <p><strong>Email: </strong>{userInfo.email}</p>
-                    <p><strong>Número Teléfono: </strong>{userInfo.phoneNumber}</p>
+                    <p data-testid="user-name"><strong>Nombre: </strong>{userInfo.name}</p>
+                    <p data-testid="user-email"><strong>Email: </strong>{userInfo.email}</p>
+                    <p data-testid="user-phone"><strong>Número Teléfono: </strong>{userInfo.phoneNumber}</p>
                 
                     {/* INFORMACIÓN DE DIRECCIÓN */}
-                    <div>
+                    <div data-testid="address-info">
                         <h3>Dirección</h3>
                         {userInfo.address ? (
                             <div>
-                                <p><strong>Calle: </strong>{userInfo.address.street}</p>
-                                <p><strong>Ciudad: </strong>{userInfo.address.city}</p>
-                                <p><strong>Provincia: </strong>{userInfo.address.state}</p>
-                                <p><strong>Código Postal: </strong>{userInfo.address.zipCode}</p>
-                                <p><strong>País: </strong>{userInfo.address.country}</p>
+                                <p data-testid="user-street"><strong>Calle: </strong>{userInfo.address.street}</p>
+                                <p data-testid="user-city"><strong>Ciudad: </strong>{userInfo.address.city}</p>
+                                <p data-testid="user-state"><strong>Provincia: </strong>{userInfo.address.state}</p>
+                                <p data-testid="user-zipcode"><strong>Código Postal: </strong>{userInfo.address.zipCode}</p>
+                                <p data-testid="user-country"><strong>País: </strong>{userInfo.address.country}</p>
                             </div>
                         ) : (
                             <p>No hay información de dirección disponible</p>
                         )}
-                        <button className="profile-button" onClick={handleAddressClick}>
+                        <button className="profile-button" onClick={handleAddressClick} data-testid="address-button">
                             {userInfo.address ? "Editar dirección" : "Añadir dirección"}
                         </button>
                     </div>
 
                     {/* HISTORIAL DE PEDIDOS */}
                     <h3>Historial de pedidos</h3>
-                    <ul>
+                    <ul data-testid="order-list">
                         {paginatedOrders.map(order => (
-                            <li key={order.id}>
+                            <li key={order.id} data-testid={`order-item-${order.id}`}>
                                 {/* IMAGEN DEL PRODUCTO */}
                                 <img 
                                     src={`data:${order.product?.imageType || "image/jpeg"};base64,${order.product?.image}`}
                                     alt={order.product?.name} 
+                                    data-testid={`order-product-image-${order.id}`}
                                 />
                                 <div>
                                     {/* DETALLES DEL PRODUCTO EN EL PEDIDO */}
-                                    <p><strong>Nombre: </strong>{order.product.name}</p>
-                                    <p><strong>Estado: </strong>{order.status}</p>
-                                    <p><strong>Cantidad: </strong>{order.quantity}</p>
-                                    <p><strong>Precio: </strong>€{order.price.toFixed(2)}</p>
+                                    <p data-testid={`order-product-name-${order.id}`}><strong>Nombre: </strong>{order.product.name}</p>
+                                    <p data-testid={`order-status-${order.id}`}><strong>Estado: </strong>{order.status}</p>
+                                    <p data-testid={`order-quantity-${order.id}`}><strong>Cantidad: </strong>{order.quantity}</p>
+                                    <p data-testid={`order-price-${order.id}`}><strong>Precio: </strong>€{order.price.toFixed(2)}</p>
                                 </div>
                             </li>
                         ))}

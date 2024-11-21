@@ -55,19 +55,21 @@ const LoginPage = () => {
             {/* FORMULARIO DE LOGIN */}
             <form onSubmit={handleSubmit}>
                 {/* CAMPO PARA EL EMAIL */}
-                <label>Email:</label>
+                <label htmlFor="email">Email:</label>
                 <input 
                     type="email" 
                     name="email" 
+                    id="email"
                     value={formData.email} 
                     onChange={handleChange} 
                     required 
                 />
                 {/* CAMPO PARA LA CONTRASEÑA */}
-                <label>Password:</label>
+                <label htmlFor="password">Password:</label>
                 <input 
                     type="password" 
                     name="password"
+                    id="password"
                     value={formData.password} 
                     onChange={handleChange} 
                     required 

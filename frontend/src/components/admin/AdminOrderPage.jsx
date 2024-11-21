@@ -84,9 +84,9 @@ const AdminOrderPage = () => {
             {error && <p className="error-message">{error}</p>}
             <div className="filter-container">
                 <div className="statusFilter">
-                    <label>Filtrar por Estado </label>
+                    <label htmlFor="statusFilter">Filtrar por Estado </label>
                     {/* SELECT PARA FILTRAR POR ESTADO */}
-                    <select value={statusFilter} onChange={handleFilterChange}>
+                    <select id="statusFilter" value={statusFilter} onChange={handleFilterChange}>
                         <option value="">ALL</option>
                         {OrderStatus.map(status => (
                             <option key={status} value={status}>{status}</option>

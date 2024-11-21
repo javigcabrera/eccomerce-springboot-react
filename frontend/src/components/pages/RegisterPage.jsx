@@ -57,13 +57,14 @@ const RegisterPage = () => {
         <div className="register-page">
             <h2>Registro</h2>
             {/* MUESTRA MENSAJES SI EXISTEN */}
-            {message && <p className="message">{message}</p>}
+            {message && <p className="message" data-testid="message">{message}</p>}
             
             {/* FORMULARIO DE REGISTRO */}
             <form onSubmit={handleSubmit}>
                 {/* CAMPO PARA EL EMAIL */}
-                <label>Email:</label>
+                <label htmlFor="email">Email:</label>
                 <input 
+                    id="email"
                     type="email" 
                     name="email" 
                     value={formData.email} 
@@ -72,8 +73,9 @@ const RegisterPage = () => {
                 />
 
                 {/* CAMPO PARA EL NOMBRE */}
-                <label>Nombre:</label>
+                <label htmlFor="name">Nombre:</label>
                 <input 
+                    id="name"
                     type="text" 
                     name="name" 
                     value={formData.name} 
@@ -82,8 +84,9 @@ const RegisterPage = () => {
                 />
 
                 {/* CAMPO PARA EL NÚMERO DE TELÉFONO */}
-                <label>Número Teléfono:</label>
+                <label htmlFor="phoneNumber">Número Teléfono:</label>
                 <input 
+                    id="phoneNumber"
                     type="text" 
                     name="phoneNumber" 
                     value={formData.phoneNumber} 
@@ -92,8 +95,9 @@ const RegisterPage = () => {
                 />
 
                 {/* CAMPO PARA LA CONTRASEÑA */}
-                <label>Password:</label>
+                <label htmlFor="password">Password:</label>
                 <input 
+                    id="password"
                     type="password" 
                     name="password"
                     value={formData.password} 
